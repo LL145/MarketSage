@@ -1,0 +1,4 @@
+column_name,symbol,column_name_remote,source,description,unit
+US_GDP,GDP,GDP,FRED,美国GDP,百万美元
+US_POPULATION,POPTHM,POPTHM,FRED,美国人口,千人
+SP500_TR,^SP500TR,Adj Close,YFINANCE,标普500全收益指数,指数点

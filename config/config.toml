@@ -1,0 +1,4 @@
+# config/config.toml
+[data]
+data_config_file_name = "config/data_config.csv"
+raw_data_file_name = "data/data_raw.csv"
