@@ -33,7 +33,7 @@ class MultplDataSource(BaseDataSource):
                     cols = row.find_all('td')
                     if len(cols) == 2:
                         date = cols[0].text.strip()
-                        value  = cols[1].text.strip().replace('†', '').strip()  # Remove '†' symbol
+                        value = cols[1].text.strip().replace('†', '').replace('%', '').strip()
                         data.append([date, value])
 
                 df = pd.DataFrame(data, columns=['DATE', column_name])
