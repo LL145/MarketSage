@@ -6,5 +6,5 @@ import pandas as pd
 class BaseDataSource(ABC):
 
     @abstractmethod
-    def fetch_data(self, symbol: str, column_name_remote: str, column_name_local: str, start_date: datetime, end_date: datetime) -> pd.DataFrame:
+    def fetch_data(self, symbol: str, column_name_remote: str, column_name: str, start_date: datetime, end_date: datetime) -> pd.DataFrame:
         pass

@@ -4,6 +4,7 @@ from datetime import datetime
 from typing import List
 import logging
 from data_sources.fred_data_source import FredDataSource
+from data_sources.multpl_data_source import MultplDataSource
 from data_sources.yfinance_data_source import YfinanceDataSource
 from config_reader import ConfigReader
 from file_handler import FileHandler
@@ -15,11 +16,12 @@ class DataFetcher:
         self.config = config
         self.raw_data_file_name = self.config.get_absolute_path(self.config.get('data', 'raw_data_file_name'))
         self.data_config_file_name = self.config.get_absolute_path(self.config.get('data', 'data_config_file_name'))
-        self.columns_info = self.config.load_data_config(self.data_config_file_name)
+        self.columns_info = self.config.get_data_config_map()
         self.file_handler = FileHandler(self.raw_data_file_name)
         self.data_sources = {
             'FRED': FredDataSource(),
-            'YFINANCE': YfinanceDataSource()
+            'YFINANCE': YfinanceDataSource(),
+            'MULTPL': MultplDataSource(config)
         }
 
     def fetch_data(self, start_date: datetime, end_date: datetime, column_names: List[str] = None) -> pd.DataFrame:
