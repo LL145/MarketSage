@@ -2,6 +2,9 @@ column_name,symbol,column_name_remote,source,description,unit,url
 US_GDP,GDP,GDP,FRED,美国GDP,百万美元,
 US_POPULATION,POPTHM,POPTHM,FRED,美国人口,千人,
 SP500_TR,^SP500TR,Adj Close,YFINANCE,标普500全收益指数,指数点,
+SP500_VOLUME,^GSPC,Volume,YFINANCE,标普500交易量,指数点,
+RUSSELL2000,^RUT,Adj Close,YFINANCE,罗素2000指数,指数点,
+RUSSELL2000_VOLUME,^RUT,Volume,YFINANCE,罗素2000交易量,指数点,
 US_CPI,CPIAUCSL,CPIAUCSL,FRED,美国CPI,指数点,
 US_PCE,PCE,PCE,FRED,美国PCE,指数点,
 US_PPI,PPIACO,PPIACO,FRED,美国PPI,指数点,
@@ -21,9 +24,9 @@ US_UNEMPLOYMENT,UNRATE,UNRATE,FRED,美国失业率,百分比,
 US_HOUSE,CSUSHPINSA,CSUSHPINSA,FRED,美国房价指数,指数点,
 SP500_PE,SP500_PE,,MULTPL,标普500市盈率,,https://www.multpl.com/s-p-500-pe-ratio/table/by-month
 SHILLER_PE,SHILLER_PE,,MULTPL,SHILLER标普500市盈率,,https://www.multpl.com/shiller-pe/table/by-month
-SP500_DIVIDEND_YIELD,SP500_DIVIDEND_YIELD,,MULTPL,标普500市盈率,,https://www.multpl.com/s-p-500-dividend-yield/table/by-month
-SP500_EARNINGS_YIELD,SP500_EARNINGS_YIELD,,MULTPL,标普500市盈率,,https://www.multpl.com/s-p-500-earnings-yield/table/by-month
-US_REAL_INTEREST_RATE_5,US_REAL_INTEREST_RATE_5,,MULTPL,标普500市盈率,,https://www.multpl.com/5-year-real-interest-rate/table/by-month
-US_REAL_INTEREST_RATE_10,US_REAL_INTEREST_RATE_10,,MULTPL,标普500市盈率,,https://www.multpl.com/10-year-real-interest-rate/table/by-month
-US_REAL_INTEREST_RATE_20,US_REAL_INTEREST_RATE_20,,MULTPL,标普500市盈率,,https://www.multpl.com/20-year-real-interest-rate/table/by-month
-US_REAL_INTEREST_RATE_30,US_REAL_INTEREST_RATE_30,,MULTPL,标普500市盈率,,https://www.multpl.com/30-year-real-interest-rate/table/by-month
+SP500_DIVIDEND_YIELD,SP500_DIVIDEND_YIELD,,MULTPL,标普500分红率,,https://www.multpl.com/s-p-500-dividend-yield/table/by-month
+SP500_EARNINGS_YIELD,SP500_EARNINGS_YIELD,,MULTPL,标普500盈利率,,https://www.multpl.com/s-p-500-earnings-yield/table/by-month
+US_REAL_INTEREST_RATE_5,US_REAL_INTEREST_RATE_5,,MULTPL,美国5年国债真实利率,,https://www.multpl.com/5-year-real-interest-rate/table/by-month
+US_REAL_INTEREST_RATE_10,US_REAL_INTEREST_RATE_10,,MULTPL,美国10年国债真实利率,,https://www.multpl.com/10-year-real-interest-rate/table/by-month
+US_REAL_INTEREST_RATE_20,US_REAL_INTEREST_RATE_20,,MULTPL,美国20年国债真实利率,,https://www.multpl.com/20-year-real-interest-rate/table/by-month
+US_REAL_INTEREST_RATE_30,US_REAL_INTEREST_RATE_30,,MULTPL,美国30年国债真实利率,,https://www.multpl.com/30-year-real-interest-rate/table/by-month
