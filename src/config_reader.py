@@ -23,6 +23,9 @@ class ConfigReader:
     def get_data_raw_absolute_path(self):
         return self.get_absolute_path(self.get('data', 'raw_data_file_name'))
 
+    def get_data_filled_absolute_path(self):
+        return self.get_absolute_path(self.get('data', 'filled_data_file_name'))
+        
     def get_data_processed_absolute_path(self):
         return self.get_absolute_path(self.get('data', 'processed_data_file_name'))
 
@@ -43,17 +46,49 @@ class ConfigReader:
         return symbol_to_url
     
     def read_data_raw(self) -> pd.DataFrame:
+        file_path = self.get_data_raw_absolute_path()
         try:
-            df = pd.read_csv(self.get_data_raw_absolute_path(), parse_dates=['DATE'], index_col='DATE')
+            df = pd.read_csv(file_path, parse_dates=['DATE'], index_col='DATE')
             return df
         except FileNotFoundError:
-            raise FileNotFoundError(f"{self.file_path} not found.")
+            raise FileNotFoundError(f"{file_path} not found.")
+        except Exception as e:
+            raise e
+    
+    def read_data_filled(self) -> pd.DataFrame:
+        file_path = self.get_data_filled_absolute_path()
+        try:
+            df = pd.read_csv(file_path, parse_dates=['DATE'], index_col='DATE')
+            return df
+        except FileNotFoundError:
+            raise FileNotFoundError(f"{file_path} not found.")
+        except Exception as e:
+            raise e
+    
+    def read_data_processed(self) -> pd.DataFrame:
+        file_path = self.get_data_processed_absolute_path()
+        try:
+            df = pd.read_csv(file_path, parse_dates=['DATE'], index_col='DATE')
+            return df
+        except FileNotFoundError:
+            raise FileNotFoundError(f"{file_path} not found.")
         except Exception as e:
             raise e
 
     def save_data_raw(self, df: pd.DataFrame) -> None:
-        df.reset_index().rename(columns={'index': 'DATE'}).to_csv(self.get_data_raw_absolute_path(), index=False)
-        print(f"Data has been saved to {self.file_path}")
+        file_path = self.get_data_raw_absolute_path()
+        df.reset_index().rename(columns={'index': 'DATE'}).to_csv(file_path, index=False)
+        print(f"Data has been saved to {file_path}")
+    
+    def save_data_filled(self, df: pd.DataFrame) -> None:
+        file_path = self.get_data_filled_absolute_path()
+        df.reset_index().rename(columns={'index': 'DATE'}).to_csv(file_path, index=False)
+        print(f"Data has been saved to {file_path}")
+
+    def save_data_processed(self, df: pd.DataFrame) -> None:
+        file_path = self.get_data_processed_absolute_path()
+        df.reset_index().rename(columns={'index': 'DATE'}).to_csv(file_path, index=False)
+        print(f"Data has been saved to {file_path}")
 
     def create_empty_file(self, start_date: datetime, end_date: datetime) -> pd.DataFrame:
         df = pd.DataFrame(index=pd.date_range(start=start_date, end=end_date, freq='D'))
