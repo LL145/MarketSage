@@ -3,6 +3,8 @@ import pandas as pd
 from datetime import datetime
 import logging
 from config_reader import ConfigReader
+from scipy.interpolate import interp1d
+import numpy as np
 
 logger = logging.getLogger(__name__)
 
@@ -13,8 +15,16 @@ class DataProcessor:
     def clean_and_fill_data(self):
         df = self.config.read_data_raw()
         df = df.loc[~df.index.duplicated(keep='first')]
+        
+        #interpolate_columns = ['US_CPI', 'US_PPI', 'US_PCE', 'US_GDP', 'GDPC1', 'PAYEMS', 'RECESSION', 'US_M1', 'US_M2', 'US_UNEMPLOYMENT', 'US_HOUSE','US_MONETARY_BASE','CONSUMER_SENTIMENT']
+        for column in df.columns:
+            not_nan = df[column].notna()
+            x = np.arange(len(df))
+            x_known = x[not_nan]
+            y_known = df[column][not_nan]
+            f = interp1d(x_known, y_known, kind='linear', fill_value='extrapolate')
+            df[column] = f(x)
         df = df[df.index.weekday < 5]
-        df = df.ffill()
         self.config.save_data_filled(df)
     
     def process_ma(self):
@@ -60,16 +70,13 @@ class DataProcessor:
         new_df['M2_GDP_RATIO'] = data['US_M2']/data['US_GDP']
         new_df['US_MONETARY_BASE_GDP_RATIO'] = data['US_MONETARY_BASE']/data['US_GDP']
 
-        # WTI_BRENT_SPREAD_RATIO
-        new_df['WTI_BRENT_SPREAD_RATIO'] = (data['WTI_OIL'] - data['BRENT_OIL']) / data['BRENT_OIL']
-
         # 美联储总资产/GDP
         new_df['WALCL_GDP'] = data['WALCL'] / data['US_GDP']
         # 隔夜逆回购/GDP
         new_df['RRPONTSYD_GDP'] = data['RRPONTSYD'] / data['US_GDP']
 
         # ==========================
-        base_columns = ['SP500_TR', 'RUSSELL2000', 'NASDAQ', 'VGTSX', 'US_CPI', 'US_PCE', 'US_PPI', 'DXY', 'RRPONTSYD', 'WALCL','US_GDP', 'US_POPULATION', 'US_MONETARY_BASE', 'US_M1', 'US_M2', 'US_HOUSE', 'BRENT_OIL', 'GOLD', 'US_UNEMPLOYMENT','T10YIE', 'FEDFUNDS', 'GS1', 'GS2', 'GS10', 'GS30',
+        base_columns = ['SP500_TR', 'RUSSELL2000', 'NASDAQ', 'VGTSX', 'US_CPI', 'US_PCE', 'US_PPI', 'DXY', 'RRPONTSYD', 'WALCL','US_GDP', 'US_POPULATION', 'US_MONETARY_BASE', 'US_M1', 'US_M2', 'US_HOUSE', 'OIL', 'GOLD', 'US_UNEMPLOYMENT','T10YIE', 'FEDFUNDS', 'GS1', 'GS2', 'GS10', 'GS30',
                        'GDPC1','PAYEMS','HIGH_YIELD_SPREAD','DHHNGSP','DGS3MO']
         suffixes = ['MA1M-R','MA3M-R' ,'MA6M-R','MA1Y-R', 'MA3Y-R', 'MA5Y-R']
         for base in base_columns:

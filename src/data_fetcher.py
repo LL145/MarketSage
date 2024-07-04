@@ -6,6 +6,7 @@ import logging
 from data_sources.fred_data_source import FredDataSource
 from data_sources.multpl_data_source import MultplDataSource
 from data_sources.yfinance_data_source import YfinanceDataSource
+from data_sources.bls_data_source import BlsDataSource
 from config_reader import ConfigReader
 from file_handler import FileHandler
 
@@ -21,6 +22,7 @@ class DataFetcher:
         self.data_sources = {
             'FRED': FredDataSource(),
             'YFINANCE': YfinanceDataSource(),
+            'BLS': BlsDataSource(),
             'MULTPL': MultplDataSource(config)
         }
 

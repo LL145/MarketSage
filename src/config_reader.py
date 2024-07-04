@@ -29,6 +29,9 @@ class ConfigReader:
     def get_data_processed_absolute_path(self):
         return self.get_absolute_path(self.get('data', 'processed_data_file_name'))
 
+    def get_model_absolute_path(self):
+        return self.get_absolute_path(self.get('data', 'model_file_name'))
+
     def get_data_config_map(self) -> Dict[str, Dict[str, str]]:
         df = pd.read_csv(self.get_absolute_path(self.get('data', 'data_config_file_name')))
         config_map = {}

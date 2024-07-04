@@ -14,6 +14,11 @@ class FredDataSource(BaseDataSource):
             data = self.client.get_data_fred(symbol, start=start_date, end=end_date)
             data = data[[column_name_remote]].rename(columns={column_name_remote: column_name})
             data.index.rename('DATE', inplace=True)
+            if symbol in ['PPIACO', 'CPIAUCSL', 'PCE', 'PAYEMS', 'SAHMREALTIME', 'M1SL', 'M2SL', 'UNRATE', 'CSUSHPINSA', 'BOGMBASE', 'UMCSENT']:
+                data.index = data.index + pd.DateOffset(months=1)
+            if symbol in ['GDP', 'GDPC1']:
+                data.index = data.index + pd.DateOffset(months=3)
+                
             logging.info(f"{column_name} data has been fetched from FRED.")
             return data
         except Exception as e:
