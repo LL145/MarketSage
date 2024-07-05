@@ -64,4 +64,3 @@ class BlsDataSource(BaseDataSource):
         df.drop(columns=["series_id", "year", "period", "footnotes"], inplace=True)
         df.sort_index(inplace=True)
         return df
-

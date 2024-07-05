@@ -20,7 +20,7 @@ class DataFetcher:
         self.columns_info = self.config.get_data_config_map()
         self.file_handler = FileHandler(self.raw_data_file_name)
         self.data_sources = {
-            'FRED': FredDataSource(),
+            'FRED': FredDataSource(config),
             'YFINANCE': YfinanceDataSource(),
             'BLS': BlsDataSource(),
             'MULTPL': MultplDataSource(config)
