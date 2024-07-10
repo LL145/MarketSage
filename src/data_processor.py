@@ -1,6 +1,5 @@
 # src/data_processor.py
 import pandas as pd
-from datetime import datetime
 import logging
 from config_reader import ConfigReader
 from scipy.interpolate import interp1d
@@ -15,8 +14,6 @@ class DataProcessor:
     def clean_and_fill_data(self):
         df = self.config.read_data_raw()
         df = df.loc[~df.index.duplicated(keep='first')]
-        
-        #interpolate_columns = ['US_CPI', 'US_PPI', 'US_PCE', 'US_GDP', 'GDPC1', 'PAYEMS', 'RECESSION', 'US_M1', 'US_M2', 'US_UNEMPLOYMENT', 'US_HOUSE','US_MONETARY_BASE','CONSUMER_SENTIMENT']
         for column in df.columns:
             not_nan = df[column].notna()
             x = np.arange(len(df))
@@ -76,8 +73,12 @@ class DataProcessor:
         new_df['RRPONTSYD_GDP'] = data['RRPONTSYD'] / data['US_GDP']
 
         # ==========================
-        base_columns = ['SP500_TR', 'RUSSELL2000', 'NASDAQ', 'VGTSX', 'US_CPI', 'US_PCE', 'US_PPI', 'DXY', 'RRPONTSYD', 'WALCL','US_GDP', 'US_POPULATION', 'US_MONETARY_BASE', 'US_M1', 'US_M2', 'US_HOUSE', 'OIL', 'GOLD', 'US_UNEMPLOYMENT','T10YIE', 'FEDFUNDS', 'GS1', 'GS2', 'GS10', 'GS30',
-                       'GDPC1','PAYEMS','HIGH_YIELD_SPREAD','DHHNGSP','DGS3MO']
+        base_columns = ['SP500_TR', 'RUSSELL2000', 'NASDAQ', 'VGTSX', 'US_CPI', 
+                        'US_PCE', 'US_PPI', 'DXY', 'RRPONTSYD', 'WALCL','US_GDP', 
+                        'US_POPULATION', 'US_MONETARY_BASE', 'US_M1', 'US_M2', 
+                        'US_HOUSE', 'OIL', 'GOLD', 'US_UNEMPLOYMENT','T10YIE', 
+                        'FEDFUNDS', 'GS1', 'GS2', 'GS10', 'GS30', 'GDPC1','PAYEMS',
+                        'HIGH_YIELD_SPREAD','DGS3MO']
         suffixes = ['MA1M-R','MA3M-R' ,'MA6M-R','MA1Y-R', 'MA3Y-R', 'MA5Y-R']
         for base in base_columns:
             for suffix in suffixes:

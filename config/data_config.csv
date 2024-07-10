@@ -30,7 +30,6 @@ SP500_VOLUME,^GSPC,Volume,YFINANCE,标普500交易量,指数点,,D
 RUSSELL2000,^RUT,Adj Close,YFINANCE,罗素2000指数,指数点,,D
 RUSSELL2000_VOLUME,^RUT,Volume,YFINANCE,罗素2000交易量,指数点,,D
 NASDAQ,^IXIC,Adj Close,YFINANCE,纳斯达克指数,指数点,,D
-NASDAQ_VOLUME,^IXIC,Volume,YFINANCE,纳斯达克指数,指数点,,D
 VGTSX,VGTSX,Adj Close,YFINANCE,国际股票全收益指数,指数点,,D
 DXY,DX-Y.NYB,Adj Close,YFINANCE,美元指数,指数点,,D
 GOLD,GC=F,Adj Close,YFINANCE,黄金价格,美元每盎司,,D
@@ -40,7 +39,6 @@ RECESSION,SAHMREALTIME,SAHMREALTIME,FRED,萨姆规则衰退指标,指数点,,M
 NFCI,NFCI,NFCI,FRED,芝加哥联邦储备银行的国家金融状况指数,指数点,,W
 ICSA,ICSA,ICSA,FRED,初请失业金人数,人,,W
 CCSA,CCSA,CCSA,FRED,续请失业金人数,人,,W
-DHHNGSP,DHHNGSP,DHHNGSP,FRED,Henry Hub天然气现货价格,美元/百万英热单位,,D
 SP500_PE,SP500_PE,,MULTPL,标普500市盈率,,https://www.multpl.com/s-p-500-pe-ratio/table/by-month,
 SHILLER_PE,SHILLER_PE,,MULTPL,SHILLER标普500市盈率,,https://www.multpl.com/shiller-pe/table/by-month,
 SP500_DIVIDEND_YIELD,SP500_DIVIDEND_YIELD,,MULTPL,标普500分红率,,https://www.multpl.com/s-p-500-dividend-yield/table/by-month,
