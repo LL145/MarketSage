@@ -15,12 +15,16 @@ class DataProcessor:
         df = self.config.read_data_raw()
         df = df.loc[~df.index.duplicated(keep='first')]
         for column in df.columns:
-            not_nan = df[column].notna()
-            x = np.arange(len(df))
-            x_known = x[not_nan]
-            y_known = df[column][not_nan]
-            f = interp1d(x_known, y_known, kind='linear', fill_value='extrapolate')
-            df[column] = f(x)
+            freq = self.config.get_data_config_map()[column]['freq']
+            if freq == 'D':
+                df[column] = df[column].ffill()
+            else:
+                not_nan = df[column].notna()
+                x = np.arange(len(df))
+                x_known = x[not_nan]
+                y_known = df[column][not_nan]
+                f = interp1d(x_known, y_known, kind='linear', fill_value='extrapolate')
+                df[column] = f(x)
         df = df[df.index.weekday < 5]
         self.config.save_data_filled(df)
     
@@ -30,7 +34,7 @@ class DataProcessor:
             'MA1M': 20,
             'MA3M': 65,
             'MA6M': 130,
-            'MA1Y': 260,
+            'MA1Y': 261,
             'MA3Y': 782,
             'MA5Y': 1304
         }
@@ -73,12 +77,16 @@ class DataProcessor:
         new_df['RRPONTSYD_GDP'] = data['RRPONTSYD'] / data['US_GDP']
 
         # ==========================
-        base_columns = ['SP500_TR', 'RUSSELL2000', 'NASDAQ', 'VGTSX', 'US_CPI', 
-                        'US_PCE', 'US_PPI', 'DXY', 'RRPONTSYD', 'WALCL','US_GDP', 
+        base_columns = ['SP500_TR', 'RUSSELL2000', 'NASDAQ', 'VGTSX',
+                        'US_CPI', 'US_PCE', 'US_PPI', 
+                        'DXY',
+                        'RRPONTSYD', 'WALCL','US_GDP', 'GDPC1',
+                        'GS2', 'GS30',
+                        'OIL', 'GOLD',
                         'US_POPULATION', 'US_MONETARY_BASE', 'US_M1', 'US_M2', 
-                        'US_HOUSE', 'OIL', 'GOLD', 'US_UNEMPLOYMENT','T10YIE', 
-                        'FEDFUNDS', 'GS1', 'GS2', 'GS10', 'GS30', 'GDPC1','PAYEMS',
-                        'HIGH_YIELD_SPREAD','DGS3MO']
+                        'US_HOUSE', 'US_UNEMPLOYMENT', 
+                        'FEDFUNDS','PAYEMS',
+                        'HIGH_YIELD_SPREAD']
         suffixes = ['MA1M-R','MA3M-R' ,'MA6M-R','MA1Y-R', 'MA3Y-R', 'MA5Y-R']
         for base in base_columns:
             for suffix in suffixes:
@@ -87,7 +95,9 @@ class DataProcessor:
                     new_df[column_name] = data[column_name]
 
         # =========================
-        base_columns = ['T10Y3M', 'T10YIE', 'FEDFUNDS', 'GS1', 'GS2', 'GS10', 'GS30','HIGH_YIELD_SPREAD', 'US_UNEMPLOYMENT', 'DGS3MO']
+        base_columns = ['T10Y3M', 'T10YIE', 'FEDFUNDS', 'GS1', 'GS2', 'GS10', 'GS30',
+                        'HIGH_YIELD_SPREAD', 'US_UNEMPLOYMENT',
+                        'SP500_PE']
         suffixes = ['MA3M-D' ,'MA6M-D','MA1Y-D', 'MA3Y-D', 'MA5Y-D']
         for base in base_columns:
             for suffix in suffixes:

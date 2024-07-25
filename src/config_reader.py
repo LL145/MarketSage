@@ -29,6 +29,9 @@ class ConfigReader:
     def get_data_processed_absolute_path(self):
         return self.get_absolute_path(self.get('data', 'processed_data_file_name'))
 
+    def get_chart_absolute_path(self):
+        return self.get_absolute_path(self.get('data', 'chart_file_name'))
+
     def get_model_absolute_path(self):
         return self.get_absolute_path(self.get('data', 'model_file_name'))
 
