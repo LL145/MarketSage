@@ -1,5 +1,6 @@
 from datetime import datetime, time, timedelta
 import pytz
+import yfinance as yf
 
 def get_ny_date_without_timezone():
   new_york_timezone = pytz.timezone('America/New_York')
@@ -9,3 +10,8 @@ def get_ny_date_without_timezone():
   while target_date_without_tz.weekday() >= 5:
       target_date_without_tz -= timedelta(days=1)
   return target_date_without_tz
+
+
+def is_nyse_open(date):
+    df = yf.download("^GSPC", start=date, end=date)
+    return len(df) == 1

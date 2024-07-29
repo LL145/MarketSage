@@ -1,46 +1,46 @@
-column_name,symbol,column_name_remote,source,description,unit,url,freq
-US_GDP,GDP,GDP,FRED,美国GDP,百万美元,,Q
-GDPC1,GDPC1,GDPC1,FRED,美国真实GDP,2017年美元,,Q
-US_POPULATION,POPTHM,POPTHM,FRED,美国人口,千人,,M
-US_CPI,CPIAUCSL,CPIAUCSL,FRED,美国CPI,指数点,,M
-US_PPI,PPIACO,PPIACO,FRED,美国PPI,指数点,,M
-US_PCE,PCE,PCE,FRED,美国PCE,指数点,,M
-FEDFUNDS,RIFSPFFNB,RIFSPFFNB,FRED,联邦基金利率,百分比,,D
-DGS3MO,^IRX,Adj Close,YFINANCE,美国3个月国债利率,百分比,,D
-GS1,DGS1,DGS1,FRED,美国1年期国债利率,百分比,,D
-GS2,DGS2,DGS2,FRED,美国2年期国债利率,百分比,,D
-GS5,^FVX,Adj Close,YFINANCE,美国5年期国债利率,百分比,,D
-GS10,^TNX,Adj Close,YFINANCE,美国10年期国债利率,百分比,,D
-GS30,^TYX,Adj Close,YFINANCE,美国30年期国债利率,百分比,,D
-VIX,^VIX,Adj Close,YFINANCE,VIX指数,指数点,,D
-US_M1,M1SL,M1SL,FRED,美国M1货币供应量,十亿美元,,M
-US_M2,M2SL,M2SL,FRED,美国M2货币供应量,十亿美元,,M
-US_UNEMPLOYMENT,UNRATE,UNRATE,FRED,美国失业率,百分比,,M
-US_HOUSE,CSUSHPINSA,CSUSHPINSA,FRED,美国房价指数,指数点,,M
-HIGH_YIELD_SPREAD,BAMLH0A0HYM2,BAMLH0A0HYM2,FRED,高收益债券利差,百分比,,D
-US_MONETARY_BASE,BOGMBASE,BOGMBASE,FRED,美国基础货币,百万美元,,M
-T10Y3M,T10Y3M,T10Y3M,FRED,10年和3个月国债利差,百分比,,D
-T10Y2Y,T10Y2Y,T10Y2Y,FRED,10年和2年国债利差,百分比,,D
-RRPONTSYD,RRPONTSYD,RRPONTSYD,FRED,隔夜逆回购,十亿美元,,D
-WALCL,WALCL,WALCL,FRED,美联储总资产,十亿美元,,W
-T10YIE,T10YIE,T10YIE,FRED,10年美债平准通胀率,百分比,,D
-PAYEMS,PAYEMS,PAYEMS,FRED,美国非农就业人数,千人,,M
-SP500_TR,^SP500TR,Adj Close,YFINANCE,标普500全收益指数,指数点,,D
-SP500,^GSPC,Adj Close,YFINANCE,标普500指数,指数点,,D
-SP500_VOLUME,^GSPC,Volume,YFINANCE,标普500交易量,指数点,,D
-RUSSELL2000,^RUT,Adj Close,YFINANCE,罗素2000指数,指数点,,D
-RUSSELL2000_VOLUME,^RUT,Volume,YFINANCE,罗素2000交易量,指数点,,D
-NASDAQ,^IXIC,Adj Close,YFINANCE,纳斯达克指数,指数点,,D
-VGTSX,VGTSX,Adj Close,YFINANCE,国际股票全收益指数,指数点,,D
-DXY,DX-Y.NYB,Adj Close,YFINANCE,美元指数,指数点,,D
-GOLD,GC=F,Adj Close,YFINANCE,黄金价格,美元每盎司,,D
-OIL,CL=F,Adj Close,YFINANCE,原油价格,美元每桶,,D
-CONSUMER_SENTIMENT,UMCSENT,UMCSENT,FRED,密歇根大学消费者情绪指数,指数点,,M
-RECESSION,SAHMREALTIME,SAHMREALTIME,FRED,萨姆规则衰退指标,指数点,,M
-NFCI,NFCI,NFCI,FRED,芝加哥联邦储备银行的国家金融状况指数,指数点,,W
-ICSA,ICSA,ICSA,FRED,初请失业金人数,人,,W
-CCSA,CCSA,CCSA,FRED,续请失业金人数,人,,W
-SP500_PE,SP500_PE,,MULTPL,标普500市盈率,,https://www.multpl.com/s-p-500-pe-ratio/table/by-month,
-SHILLER_PE,SHILLER_PE,,MULTPL,SHILLER标普500市盈率,,https://www.multpl.com/shiller-pe/table/by-month,
-SP500_DIVIDEND_YIELD,SP500_DIVIDEND_YIELD,,MULTPL,标普500分红率,,https://www.multpl.com/s-p-500-dividend-yield/table/by-month,
-SP500_EARNINGS_YIELD,SP500_EARNINGS_YIELD,,MULTPL,标普500盈利率,,https://www.multpl.com/s-p-500-earnings-yield/table/by-month,
+column_name,symbol,column_name_remote,source,description,unit,url,freq,date_shift,interpolation_method
+US_GDP,GDP,GDP,FRED,美国GDP,百万美元,,Q,,
+GDPC1,GDPC1,GDPC1,FRED,美国真实GDP,2017年美元,,Q,,
+US_POPULATION,POPTHM,POPTHM,FRED,美国人口,千人,,M,,
+US_CPI,CPIAUCSL,CPIAUCSL,FRED,美国CPI,指数点,,M,,
+US_PPI,PPIACO,PPIACO,FRED,美国PPI,指数点,,M,,
+US_PCE,PCE,PCE,FRED,美国PCE,指数点,,M,,
+FEDFUNDS,RIFSPFFNB,RIFSPFFNB,FRED,联邦基金利率,百分比,,D,,
+DGS3MO,^IRX,Adj Close,YFINANCE,美国3个月国债利率,百分比,,D,,
+GS1,DGS1,DGS1,FRED,美国1年期国债利率,百分比,,D,,
+GS2,DGS2,DGS2,FRED,美国2年期国债利率,百分比,,D,,
+GS5,^FVX,Adj Close,YFINANCE,美国5年期国债利率,百分比,,D,,
+GS10,^TNX,Adj Close,YFINANCE,美国10年期国债利率,百分比,,D,,
+GS30,^TYX,Adj Close,YFINANCE,美国30年期国债利率,百分比,,D,,
+VIX,^VIX,Adj Close,YFINANCE,VIX指数,指数点,,D,,
+US_M1,M1SL,M1SL,FRED,美国M1货币供应量,十亿美元,,M,,
+US_M2,M2SL,M2SL,FRED,美国M2货币供应量,十亿美元,,M,,
+US_UNEMPLOYMENT,UNRATE,UNRATE,FRED,美国失业率,百分比,,M,,
+US_HOUSE,CSUSHPINSA,CSUSHPINSA,FRED,美国房价指数,指数点,,M,,
+HIGH_YIELD_SPREAD,BAMLH0A0HYM2,BAMLH0A0HYM2,FRED,高收益债券利差,百分比,,D,,
+US_MONETARY_BASE,BOGMBASE,BOGMBASE,FRED,美国基础货币,百万美元,,M,,
+T10Y3M,T10Y3M,T10Y3M,FRED,10年和3个月国债利差,百分比,,D,,
+T10Y2Y,T10Y2Y,T10Y2Y,FRED,10年和2年国债利差,百分比,,D,,
+RRPONTSYD,RRPONTSYD,RRPONTSYD,FRED,隔夜逆回购,十亿美元,,D,,
+WALCL,WALCL,WALCL,FRED,美联储总资产,十亿美元,,W,,
+T10YIE,T10YIE,T10YIE,FRED,10年美债平准通胀率,百分比,,D,,
+PAYEMS,PAYEMS,PAYEMS,FRED,美国非农就业人数,千人,,M,,
+SP500_TR,^SP500TR,Adj Close,YFINANCE,标普500全收益指数,指数点,,D,,
+SP500,^GSPC,Adj Close,YFINANCE,标普500指数,指数点,,D,,
+SP500_VOLUME,^GSPC,Volume,YFINANCE,标普500交易量,指数点,,D,,
+RUSSELL2000,^RUT,Adj Close,YFINANCE,罗素2000指数,指数点,,D,,
+NASDAQ,^IXIC,Adj Close,YFINANCE,纳斯达克指数,指数点,,D,,
+VGTSX,VGTSX,Adj Close,YFINANCE,国际股票全收益指数,指数点,,D,,
+DXY,DX-Y.NYB,Adj Close,YFINANCE,美元指数,指数点,,D,,
+GOLD,GC=F,Adj Close,YFINANCE,黄金价格,美元每盎司,,D,,
+OIL,CL=F,Adj Close,YFINANCE,原油价格,美元每桶,,D,,
+CONSUMER_SENTIMENT,UMCSENT,UMCSENT,FRED,密歇根大学消费者情绪指数,指数点,,M,,
+RECESSION,SAHMREALTIME,SAHMREALTIME,FRED,萨姆规则衰退指标,指数点,,M,,
+NFCI,NFCI,NFCI,FRED,芝加哥联邦储备银行的国家金融状况指数,指数点,,W,,
+ICSA,ICSA,ICSA,FRED,初请失业金人数,人,,W,,
+CCSA,CCSA,CCSA,FRED,续请失业金人数,人,,W,,
+SP500_PE,SP500_PE,,MULTPL,标普500市盈率,,https://www.multpl.com/s-p-500-pe-ratio/table/by-month,,,
+SHILLER_PE,SHILLER_PE,,MULTPL,SHILLER标普500市盈率,,https://www.multpl.com/shiller-pe/table/by-month,,,
+SP500_DIVIDEND_YIELD,SP500_DIVIDEND_YIELD,,MULTPL,标普500分红率,,https://www.multpl.com/s-p-500-dividend-yield/table/by-month,,,
+SP500_EARNINGS_YIELD,SP500_EARNINGS_YIELD,,MULTPL,标普500盈利率,,https://www.multpl.com/s-p-500-earnings-yield/table/by-month,,,
+PMI,PMI,,OTHER,美国制造业PMI,百分比,,,,
