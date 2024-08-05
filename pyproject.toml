@@ -5,17 +5,17 @@ description = ""
 authors = ["Your Name <you@example.com>"]
 
 [tool.poetry.dependencies]
-python = ">=3.10.0,<3.12"
+python = ">=3.12.0"
 pandas = "^2.2.2"
-yfinance = "^0.2.40"
+yfinance = "^0.2.41"
 pandas-datareader = "^0.10.0"
 toml = "^0.10.2"
 config = "^0.5.1"
-xgboost = "2.0.3"
-matplotlib = "3.9.0"
-seaborn = "0.13.2"
-scikit-learn = "1.5.0"
-boto3 = "1.34.136"
+scikit-learn = "^1.5.1"
+boto3 = "^1.34.153"
+joblib = "1.4.2"
+lightgbm = "4.5.0"
+setuptools = "72.1.0"
 
 [tool.pyright]
 # https://github.com/microsoft/pyright/blob/main/docs/configuration.md

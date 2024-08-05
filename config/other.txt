@@ -1,0 +1,9 @@
+column_name,symbol,column_name_remote,source,description,unit,url,freq,date_shift,interpolation_method
+SP500_PE,SP500_PE,,MULTPL,标普500市盈率,,https://www.multpl.com/s-p-500-pe-ratio/table/by-month,,,
+SHILLER_PE,SHILLER_PE,,MULTPL,SHILLER标普500市盈率,,https://www.multpl.com/shiller-pe/table/by-month,,,
+SP500_DIVIDEND_YIELD,SP500_DIVIDEND_YIELD,,MULTPL,标普500分红率,,https://www.multpl.com/s-p-500-dividend-yield/table/by-month,,,
+SP500_EARNINGS_YIELD,SP500_EARNINGS_YIELD,,MULTPL,标普500盈利率,,https://www.multpl.com/s-p-500-earnings-yield/table/by-month,,,
+PMI,PMI,,OTHER,美国制造业PMI,百分比,,,,
+CCSA,CCSA,CCSA,FRED,续请失业金人数,人,,W,,
+ICSA,ICSA,ICSA,FRED,初请失业金人数,人,,W,,
+NFCI,NFCI,NFCI,FRED,芝加哥联邦储备银行的国家金融状况指数,指数点,,W,,

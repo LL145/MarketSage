@@ -41,6 +41,7 @@ class MultplDataSource(BaseDataSource):
                 df[column_name] = pd.to_numeric(df[column_name], errors='coerce')
                 df.set_index('DATE', inplace=True)
                 df = df[(df.index >= start_date) & (df.index <= end_date)]
+                df = df.loc[~df.index.duplicated(keep='first')]
                 logging.info("Data retrieved successfully")
                 logging.info(f"{column_name} data has been fetched from Multpl.")
                 return df

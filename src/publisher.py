@@ -7,6 +7,9 @@ import os
 import yfinance as yf
 import util
 from datetime import datetime, time, timedelta
+import lightgbm as lgb
+from lightgbm import LGBMClassifier
+
 
 
 class Publisher:
@@ -20,8 +23,8 @@ class Publisher:
             region_name='us-west-2')
         self.model = joblib.load(self.config.get_model_absolute_path())
 
-    def predict(self):
 
+    def predict(self):
         data_raw = self.config.read_data_raw()
         data = self.config.read_data_processed()
         last_data = data.drop(columns=['SP500_TR']).iloc[-1]
@@ -45,9 +48,9 @@ class Publisher:
             '涨跌': zd(x1, x2)
         }
 
-        x1 = data['SP500_PE'].dropna().iloc[-1]
-        x2 = data['SP500_PE'].dropna().iloc[-2]
-        map['标普500市盈率'] = {'数值': toString(x1), '更新频率': '每天', '涨跌': zd(x1, x2)}
+        #x1 = data['SP500_PE'].dropna().iloc[-1]
+        #x2 = data['SP500_PE'].dropna().iloc[-2]
+        #map['标普500市盈率'] = {'数值': toString(x1), '更新频率': '每天', '涨跌': zd(x1, x2)}
 
         x1 = data['CONSUMER_SENTIMENT'].dropna().iloc[-1]
         x2 = data['CONSUMER_SENTIMENT'].dropna().iloc[-2]

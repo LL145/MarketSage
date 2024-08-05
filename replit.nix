@@ -1,5 +1,9 @@
 {pkgs}: {
   deps = [
+    pkgs.libgccjit
+    pkgs.libGL
+    pkgs.opencl-headers
+    pkgs.ocl-icd
     pkgs.tk
     pkgs.tcl
     pkgs.qhull
@@ -12,4 +16,9 @@
     pkgs.cairo
     pkgs.glibcLocales
   ];
+  env = {
+    PYTHON_LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+      pkgs.gcc.cc.libgcc
+    ];
+  };
 }

@@ -16,14 +16,6 @@ class FredDataSource(BaseDataSource):
             data = self.client.get_data_fred(symbol, start=start_date, end=end_date)
             data = data[[column_name_remote]].rename(columns={column_name_remote: column_name})
             data.index.rename('DATE', inplace=True)
-            data_config_map = self.config.get_data_config_map()
-            if data_config_map[column_name]['freq'] == 'M':
-                data.index = data.index + pd.DateOffset(months=1)
-            if data_config_map[column_name]['freq'] == 'Q':
-                data.index = data.index + pd.DateOffset(months=3)
-            # 房价数据再往后移一个月。。。
-            if symbol == 'CSUSHPINSA':
-                data.index = data.index + pd.DateOffset(months=1)
             logging.info(f"{column_name} data has been fetched from FRED.")
             return data
         except Exception as e:

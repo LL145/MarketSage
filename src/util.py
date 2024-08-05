@@ -13,5 +13,6 @@ def get_ny_date_without_timezone():
 
 
 def is_nyse_open(date):
-    df = yf.download("^GSPC", start=date, end=date)
+    start = datetime(date.year, date.month, date.day, 0, 0, 0)
+    df = yf.download("^SP500TR", start=start, end=date)
     return len(df) == 1
