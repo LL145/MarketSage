@@ -16,7 +16,6 @@ logger = logging.getLogger(__name__)
 def main():
     config_path = os.path.join(os.path.dirname(__file__), '..', 'config', 'config.toml')
     global_config = ConfigReader(config_path)
-    global_config.get_data_config_map()
     data_fetcher = DataFetcher(global_config)
     data_raw_post_processor = DataRawPostProcessor(global_config)
     data_processor = DataProcessor(global_config)
@@ -25,7 +24,6 @@ def main():
     start = datetime(1999, 1, 1)
     end = util.get_ny_date_without_timezone()
     
-
     if util.is_nyse_open(end):
         data_fetcher.fetch_all(start, end)
         data_raw_post_processor.process()
@@ -33,8 +31,6 @@ def main():
         data_processor.process()
         
         publisher.predict()
-
-
 
 if __name__ == "__main__":
   main()

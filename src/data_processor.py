@@ -70,7 +70,8 @@ class DataProcessor:
             'US_PPI', 'DXY', 'US_GDP', 'GDPC1', 'GS2',
             'GS30', 'OIL', 'GOLD', 'US_POPULATION', 'US_MONETARY_BASE',
             'US_M1', 'US_M2', 'US_HOUSE', 'US_UNEMPLOYMENT', 'FEDFUNDS',
-            'PAYEMS', 'HIGH_YIELD_SPREAD'
+            'PAYEMS', 'HIGH_YIELD_SPREAD',
+            'IWF', 'IWD', 'GROWTH_VALUE_DIFF'
         ]
         suffixes = ['MA1M-R', 'MA3M-R', 'MA6M-R', 'MA1Y-R', 'MA3Y-R', 'MA5Y-R']
         for base in base_columns:

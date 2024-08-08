@@ -1,10 +1,10 @@
 column_name,symbol,column_name_remote,source,description,unit,url,freq,date_shift,extrapolation
 US_GDP,GDP,GDP,FRED,美国GDP,百万美元,,Q,3,linear
-GDPC1,GDPC1,GDPC1,FRED,美国真实GDP,2017年美元,,Q,3,linear
+GDPC1,GDPC1,GDPC1,FRED,美国真实GDP(2017年美元),2017年美元,,Q,3,linear
 US_POPULATION,POPTHM,POPTHM,FRED,美国人口,千人,,M,1,linear
-US_CPI,CPIAUCSL,CPIAUCSL,FRED,美国CPI,指数点,,M,1,linear
-US_PPI,PPIACO,PPIACO,FRED,美国PPI,指数点,,M,1,linear
-US_PCE,PCE,PCE,FRED,美国PCE,指数点,,M,1,linear
+US_CPI,CPIAUCSL,CPIAUCSL,FRED,消费者价格指数(指数点而非增长率),指数点,,M,1,linear
+US_PPI,PPIACO,PPIACO,FRED,生产者价格指数(指数点而非增长率),指数点,,M,1,linear
+US_PCE,PCE,PCE,FRED,消费者支出PCE(指数点而非增长率),指数点,,M,1,linear
 FEDFUNDS,RIFSPFFNB,RIFSPFFNB,FRED,联邦基金利率,百分比,,D,,ffill
 DGS3MO,^IRX,Adj Close,YFINANCE,美国3个月国债利率,百分比,,D,,
 GS1,DGS1,DGS1,FRED,美国1年期国债利率,百分比,,D,,
@@ -13,6 +13,8 @@ GS5,^FVX,Adj Close,YFINANCE,美国5年期国债利率,百分比,,D,,
 GS10,^TNX,Adj Close,YFINANCE,美国10年期国债利率,百分比,,D,,
 GS30,^TYX,Adj Close,YFINANCE,美国30年期国债利率,百分比,,D,,
 VIX,^VIX,Adj Close,YFINANCE,VIX指数,指数点,,D,,
+IWF,IWF,Adj Close,YFINANCE,罗素1000成长股,指数点,,D,,
+IWD,IWD,Adj Close,YFINANCE,罗素1000价值股,指数点,,D,,
 US_M1,M1SL,M1SL,FRED,美国M1货币供应量,十亿美元,,M,1,linear
 US_M2,M2SL,M2SL,FRED,美国M2货币供应量,十亿美元,,M,1,linear
 US_UNEMPLOYMENT,UNRATE,UNRATE,FRED,美国失业率,百分比,,M,1,ffill
@@ -36,5 +38,9 @@ GOLD,GC=F,Adj Close,YFINANCE,黄金价格,美元每盎司,,D,,
 OIL,CL=F,Adj Close,YFINANCE,原油价格,美元每桶,,D,,
 CONSUMER_SENTIMENT,UMCSENT,UMCSENT,FRED,密歇根大学消费者情绪指数,指数点,,M,1,ffill
 RECESSION,SAHMREALTIME,SAHMREALTIME,FRED,萨姆规则衰退指标,指数点,,M,1,ffill
-STICKYCPI,CORESTICKM159SFRBATL,CORESTICKM159SFRBATL,FRED,粘性CPI,百分比,,M,1,ffill
+STICKYCPI,CORESTICKM159SFRBATL,CORESTICKM159SFRBATL,FRED,粘性CPI年增长率,百分比,,M,1,ffill
 HIGHYIELD,BAMLH0A0HYM2EY,BAMLH0A0HYM2EY,FRED,高收益债券利率,百分比,,D,,ffill
+RRPGDP,,,,隔夜逆回购与GDP的比值,,,,,
+RRPM2,,,,隔夜逆回购与M2的比值,,,,,
+FEDASSETSGDP,,,,美联储总资产与GDP的比值,,,,,
+GROWTH_VALUE_DIFF,,,,成长股与价值股的收益差,,,,,

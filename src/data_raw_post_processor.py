@@ -32,6 +32,7 @@ class DataRawPostProcessor:
         return df
     
     def other2(self, df):
+        df['GROWTH_VALUE_DIFF'] = df['IWF'] - df['IWD']
         df['RRPGDP'] = 100 * df['RRPONTSYD']/df['US_GDP']
         df['RRPM2'] = 100 * df['RRPONTSYD']/df['US_M2']
         df['FEDASSETSGDP'] = df['WALCL']/df['US_GDP']
